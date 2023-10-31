@@ -86,14 +86,22 @@ public class  Board
     
     return tempPhrase;
   }  
+/*
+  preconditions: user guess must be stored in a variable and passed into guessLetter
+  postconditions: if the user guess is in the phrase, the phrase is updated with the guessed letter. foundLetter is changed to true. If the user guess is not in the phrase, the phrase is not updated. foundLetter is kept at false.
 
+  
+  */
   public boolean guessLetter(String guess)
   {
+    // finding letter did not occur yet, so boolean is false
     boolean foundLetter = false;
+    // newSolvedPhrase is cleared
     String newSolvedPhrase = "";
-    
+    // loop through all letters in String
     for (int i = 0; i < phrase.length(); i++)
     {
+      //compare each letter to guess
       if (phrase.substring(i, i + 1).equals(guess))
       {
         newSolvedPhrase += guess + " ";
@@ -101,10 +109,24 @@ public class  Board
       }
       else
       {
+        // copy current underscore and space to the new solved phrase. i*2 is used because solvedPhrase is double the length
         newSolvedPhrase += solvedPhrase.substring(i * 2, i * 2 + 1) + " ";  
       }
-    }
+    }// end of for loop
     solvedPhrase = newSolvedPhrase;
     return foundLetter;
   } 
-} 
+
+public getPhrase(){
+  return phrase;
+}
+
+public getSolvedPhrase(){
+  return solvedPhrase;
+}
+
+public getCurrentLetterValue(){
+  return currentLetterValue;
+}
+  
+} // end of boards
